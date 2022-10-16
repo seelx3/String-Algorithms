@@ -1,0 +1,6 @@
+.include/
+*.out
+out.txt
+cxx.sh
+cxxg.sh
+atcoder
