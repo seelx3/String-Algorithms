@@ -1,63 +1,63 @@
 s = abracadabra
 
 k =  1
-sa | s[sa[i], 1] | rank(sa[i]) | rank(sa[i]+1)
-11 | -           |          -1 |          -1
-10 | a           |          97 |          -1
- 0 | a           |          97 |          98
- 7 | a           |          97 |          98
- 3 | a           |          97 |          99
- 5 | a           |          97 |         100
- 1 | b           |          98 |         114
- 8 | b           |          98 |         114
- 4 | c           |          99 |          97
- 6 | d           |         100 |          97
- 2 | r           |         114 |          97
- 9 | r           |         114 |          97
+sa | s[sa[i],  2] | rank[sa[i]] | rank[sa[i]+1]
+11 | -            |          -1 |            -1
+10 | a            |          97 |            -1
+ 0 | ab           |          97 |            98
+ 7 | ab           |          97 |            98
+ 3 | ac           |          97 |            99
+ 5 | ad           |          97 |           100
+ 1 | br           |          98 |           114
+ 8 | br           |          98 |           114
+ 4 | ca           |          99 |            97
+ 6 | da           |         100 |            97
+ 2 | ra           |         114 |            97
+ 9 | ra           |         114 |            97
 
 k =  2
-sa | s[sa[i], 2] | rank(sa[i]) | rank(sa[i]+2)
-11 | -           |           0 |          -1
-10 | a           |           1 |          -1
- 0 | ab          |           2 |           8
- 7 | ab          |           2 |           8
- 3 | ac          |           3 |           4
- 5 | ad          |           4 |           2
- 8 | br          |           5 |           1
- 1 | br          |           5 |           3
- 4 | ca          |           6 |           7
- 6 | da          |           7 |           5
- 9 | ra          |           8 |           0
- 2 | ra          |           8 |           6
+sa | s[sa[i],  4] | rank[sa[i]] | rank[sa[i]+2]
+11 | -            |           0 |            -1
+10 | a            |           1 |            -1
+ 0 | abra         |           2 |             8
+ 7 | abra         |           2 |             8
+ 3 | acad         |           3 |             4
+ 5 | adab         |           4 |             2
+ 8 | bra          |           5 |             1
+ 1 | brac         |           5 |             3
+ 4 | cada         |           6 |             7
+ 6 | dabr         |           7 |             5
+ 9 | ra           |           8 |             0
+ 2 | raca         |           8 |             6
 
 k =  4
-sa | s[sa[i], 4] | rank(sa[i]) | rank(sa[i]+4)
-11 | -           |           0 |          -1
-10 | a           |           1 |          -1
- 7 | abra        |           2 |           0
- 0 | abra        |           2 |           7
- 3 | acad        |           3 |           2
- 5 | adab        |           4 |           9
- 8 | bra         |           5 |          -1
- 1 | brac        |           6 |           4
- 4 | cada        |           7 |           5
- 6 | dabr        |           8 |           1
- 9 | ra          |           9 |          -1
- 2 | raca        |          10 |           8
+sa | s[sa[i],  8] | rank[sa[i]] | rank[sa[i]+4]
+11 | -            |           0 |            -1
+10 | a            |           1 |            -1
+ 7 | abra         |           2 |             0
+ 0 | abracada     |           2 |             7
+ 3 | acadabra     |           3 |             2
+ 5 | adabra       |           4 |             9
+ 8 | bra          |           5 |            -1
+ 1 | bracadab     |           6 |             4
+ 4 | cadabra      |           7 |             5
+ 6 | dabra        |           8 |             1
+ 9 | ra           |           9 |            -1
+ 2 | racadabr     |          10 |             8
 
 k =  8
-sa | s[sa[i], 8] | rank(sa[i]) | rank(sa[i]+8)
-11 | -           |           0 |          -1
-10 | a           |           1 |          -1
- 7 | abra        |           2 |          -1
- 0 | abracada    |           3 |           6
- 3 | acadabra    |           4 |           0
- 5 | adabra      |           5 |          -1
- 8 | bra         |           6 |          -1
- 1 | bracadab    |           7 |          10
- 4 | cadabra     |           8 |          -1
- 6 | dabra       |           9 |          -1
- 9 | ra          |          10 |          -1
- 2 | racadabr    |          11 |           1
+sa | s[sa[i], 16] | rank[sa[i]] | rank[sa[i]+8]
+11 | -            |           0 |            -1
+10 | a            |           1 |            -1
+ 7 | abra         |           2 |            -1
+ 0 | abracadabra  |           3 |             6
+ 3 | acadabra     |           4 |             0
+ 5 | adabra       |           5 |            -1
+ 8 | bra          |           6 |            -1
+ 1 | bracadabra   |           7 |            10
+ 4 | cadabra      |           8 |            -1
+ 6 | dabra        |           9 |            -1
+ 9 | ra           |          10 |            -1
+ 2 | racadabra    |          11 |             1
 
-10 7 0 3 5 8 1 4 6 9 2
+sa = [ 10 7 0 3 5 8 1 4 6 9 2 ]

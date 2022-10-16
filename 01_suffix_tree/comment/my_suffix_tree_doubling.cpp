@@ -6,6 +6,8 @@ using namespace std;
 // suffix_array
 // O(N * log^2(N))
 
+// ダブリングの過程を見るには -D LOCAL オプションを付けて実行
+
 vector<int> suffix_array(const string &s) {
   int n = SZ(s);
   vector<int> sa(n + 1);
@@ -37,10 +39,10 @@ vector<int> suffix_array(const string &s) {
 
 #ifdef LOCAL
     printf("k = %2d\n", k);
-    printf("sa | s[sa[i], %d] | rank(sa[i]) | rank(sa[i]+%d)\n", k, k);
+    printf("sa | s[sa[i], %2d] | rank[sa[i]] | rank[sa[i]+%d]\n", 2 * k, k);
     for (int i = 0; i <= n; i++) {
-      string tmp = (sa[i] == n ? "-" : s.substr(sa[i], min(k, n - sa[i])));
-      printf("%2d | %-11s | %11d | %11d\n", sa[i], tmp.c_str(), rank[sa[i]],
+      string tmp = (sa[i] == n ? "-" : s.substr(sa[i], min(2 * k, n - sa[i])));
+      printf("%2d | %-12s | %11d | %13d\n", sa[i], tmp.c_str(), rank[sa[i]],
              (sa[i] + k <= n ? rank[sa[i] + k] : -1));
     }
     cout << "\n";
@@ -68,9 +70,11 @@ int main() {
   vector<int> sa = suffix_array(s);
 
 #ifdef LOCAL
+  cout << "sa = [ ";
   for (int i = 0; i < SZ(sa); i++) {
-    cout << sa[i] << " \n"[i == SZ(sa) - 1];
+    cout << sa[i] << " ";
   }
+  cout << "]\n";
   return 0;
 #endif
 
