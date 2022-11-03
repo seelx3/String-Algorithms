@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.ejs": "html",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "type_traits": "cpp"
   }
 }
