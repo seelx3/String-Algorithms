@@ -6,6 +6,7 @@ using namespace std;
 // suffix_array
 // O(N * log^2(N))
 
+// デバッグ出力用
 // ダブリングの過程を見るには -D LOCAL オプションを付けて実行
 
 vector<int> suffix_array(const string &s) {
