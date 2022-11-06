@@ -3,8 +3,12 @@ using namespace std;
 
 #define SZ(v) (int)v.size()
 
-// suffix_array
+// suffix_array (doubling)
 // O(N * log^2(N))
+
+// デバッグ出力用
+// ダブリングの過程を見るには -D LOCAL オプションを付けて実行
+// 標準エラー出力に過程が出力される
 
 vector<int> suffix_array(const string &s) {
   int n = SZ(s);
@@ -12,6 +16,10 @@ vector<int> suffix_array(const string &s) {
   vector<int> rank(n + 1);
   vector<int> tmp(n + 1);
   int k = -1;
+
+#ifdef LOCAL
+  cout << "s = " << s << "\n\n";
+#endif
 
   auto compare_sa = [&n, &rank, &k](const int &i, const int &j) -> bool {
     if (rank[i] != rank[j]) {
@@ -31,8 +39,20 @@ vector<int> suffix_array(const string &s) {
   for (k = 1; k <= n; k *= 2) {
     sort(sa.begin(), sa.end(), compare_sa);
 
+#ifdef LOCAL
+    printf("k = %2d\n", k);
+    printf("sa | s[sa[i], %2d] | rank[sa[i]] | rank[sa[i]+%d]\n", 2 * k, k);
+    for (int i = 0; i <= n; i++) {
+      string tmp = (sa[i] == n ? "-" : s.substr(sa[i], min(2 * k, n - sa[i])));
+      printf("%2d | %-12s | %11d | %13d\n", sa[i], tmp.c_str(), rank[sa[i]],
+             (sa[i] + k <= n ? rank[sa[i] + k] : -1));
+    }
+    cout << "\n";
+#endif
+
     tmp[sa[0]] = 0;
     for (int i = 1; i <= n; i++) {
+      // 右辺2項目は、蟻本の実装と異なる
       tmp[sa[i]] = tmp[sa[i - 1]] + !(rank[sa[i - 1]] == rank[sa[i]] &&
                                       rank[sa[i - 1] + k] == rank[sa[i] + k]);
     }
@@ -50,6 +70,15 @@ int main() {
   cin >> s;
 
   vector<int> sa = suffix_array(s);
+
+#ifdef LOCAL
+  cout << "sa = [ ";
+  for (int i = 0; i < SZ(sa); i++) {
+    cout << sa[i] << " ";
+  }
+  cout << "]\n";
+  return 0;
+#endif
 
   int q;
   cin >> q;
