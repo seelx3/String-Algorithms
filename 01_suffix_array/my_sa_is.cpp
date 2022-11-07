@@ -115,7 +115,6 @@ vector<int> sa_is(vector<int> s, const int k = 256) {
     }
   }
 
-  seed.resize(SZ(lmss));
   for (int i = 0; i < SZ(lmss); i++) {
     seed[i] = lmss[sa[i]];
   }
